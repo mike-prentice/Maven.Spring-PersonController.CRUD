@@ -14,7 +14,10 @@ Create a `Person` class with fields for first name, last name, and an id number.
 
 Create a `PersonController` class with `Person createPerson(Person p)`, `Person getPerson(int id)`, `List<Person> getPersonList()`, `Person updatePerson(Person p)`, and `void DeletePerson(int id)` methods, and let it track a list of Person objects.
 
-Add the `@RestController` annotation to your `PersonController` class, and using the "Endpoints" list in the Reference section below, add the appropriate `@RequestMapping` annotations to each of your methods. Endpoints should be at `/people` and `/people/{id}` as appropriate. You will have to use `@PathVariable` for id numbers in the URI and `@RequestBody` for Person objects sent in the requests.
+Add the `@RestController` annotation to your `PersonController` class, and using the "Endpoints" list in the Reference 
+section below, add the appropriate `@RequestMapping` annotations to each of your methods. Endpoints should be 
+at `/people` and `/people/{id}` as appropriate. You will have to use `@PathVariable` for 
+id numbers in the URI and `@RequestBody` for Person objects sent in the requests.
 
 
 ### Part 2: 
