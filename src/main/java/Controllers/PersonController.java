@@ -6,29 +6,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.PersonService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 public class PersonController {
 
     @Autowired
-    PersonService ps;
+    PersonService p;
 
     @PostMapping(value = "/people")
-    Person save(Person p){
-        ps.save(p);
+    Person save(@Valid @RequestBody Person person){
+         return p.savePerson(person);
     }
 
 
     @GetMapping(value = "/people/{id}")
-    public int getPerson(@PathVariable("id") int id){
-        return id;
+    public Person getPerson(@PathVariable("id") Long id){
+        return p.findOnePerson(id);
     }
 
 
     @GetMapping(value = "/people")
+ public List<Person> findAll(){
+        return p.getAllPeople();
+    }
 
-        return null;
 
 
 
@@ -39,5 +42,8 @@ public class PersonController {
 
 
     @DeleteMapping(value = "/people/{id}")
-    void DeletePerson(@PathVariable("id") int id){}
+    public String DeletePerson(@PathVariable("id") Long id){
+        p.deletePersonById(id);
+        return "Successful Deletion";
+    }
 }
