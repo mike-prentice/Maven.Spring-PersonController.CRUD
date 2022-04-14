@@ -29,5 +29,9 @@ public class PersonService {
     public void deletePersonById(Long id) {
         pr.delete(id);
     }
+    public boolean exists(Long id){
+        pr.exists(id);
+        return false;
+    }
 
 }
