@@ -1,4 +1,4 @@
-# CRUDApplication
+# io.zipcoder.crudapp.CRUDApplication
 
 This repository provides a starter project for a CRUD application using Spring Boot, RestControllers, and H2 for an in memory database. When using the H2 console in the browser (eg: `localhost:8080/console`) be sure to set the `JDBC URL` to match the url defined in `application-h2.properties`. The default is `jdbc:h2:mem:testdb`.
 
