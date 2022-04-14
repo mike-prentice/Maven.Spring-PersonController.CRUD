@@ -1,8 +1,10 @@
 package Controllers;
 
 import Models.Person;
-import Repos.PersonRepository;
+import jdk.jpackage.internal.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.PersonService;
 
@@ -28,8 +30,14 @@ public class PersonController {
 
 
     @GetMapping(value = "/people")
- public List<Person> findAll(){
-        return p.getAllPeople();
+ public ResponseEntity<List<Person>> findAll(){
+        Log.info("getting all users");
+        List<Person> people = p.getAllPeople();
+        if (people == null || people.isEmpty()){
+            Log.info("no people found");
+            return new ResponseEntity<List<Person>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<Person>>(people, HttpStatus.OK);
     }
 
 
